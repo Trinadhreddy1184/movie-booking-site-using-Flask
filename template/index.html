@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BOOKING-SITE</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style2.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/lightslider.css') }}">
+	<script type="text/javascript" src="{{ url_for('static', filename='/JQuery3.3.1.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='/lightslider.js') }}"></script>
+	<link rel="shortcut icon" href="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img1.jpeg"/>
+	<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+{% for mess in get_flashed_messages() %}
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+   {{mess}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+					{% endfor %}
+<div id ="blur">
+<nav>
+	<a href="/index/" class="logo">
+		<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img1.jpeg"/>
+	</a>
+<input type="checkbox" class="menu-btn" name="" id="menu-btn"/>
+<label class="menu-icon" for="menu-btn">
+	<span class="nav-icon"></span>
+</label>
+<ul class="menu">
+
+	<li><a href="/index/">Home</a></li>
+	<li><a href="#movies-list">News</a></li>
+	<li><a href="#contact">Contact-Us</a></li>
+	<li><div class="dropdown">
+  <button onclick="myFunction1()" class="dropbtn">{{gname}}<i id="loc1" class="fas fa-caret-down"></i></button>
+		<div id="myDropdown1" class="dropdown-content">
+    <a href="#profile">My Profile</a>
+    <a href="#bookings">My Bookings</a>
+	<a href="/">Logout &nbsp;<i class="fas fa-sign-in-alt" id="login"></i></a>
+  </div>
+	</div>
+	</li>
+	
+	
+</ul>
+
+<div class="search">
+	<input type="text" name="" placeholder="search Movie"/>
+	<i class="fas fa-search"></i>
+
+</div>
+</nav>
+<section id="main">
+	    <ul id="autoWidth" class="cs-hidden">
+	{% for mov in movies  %}
+      <li class="item-a">
+      	<div class="showcase-box">
+		<img src="{{mov[4]}}">
+	</div></li>
+	{% endfor %}
+    </ul>
+</section>
+<!-------------------------->
+<section id="latest">
+	<h2 class="latest-heading">Recommended-Movies</h2>
+	    <ul id="autoWidth2" class="cs-hidden">
+	{% for rmov in rmovies  %}
+      <li class="item-a">
+      	<div class="latest-box">
+
+      		<div class="latest-img">
+				<form action="/bookticket/" method="post" enctype="multipart/form-data">
+					<input type="text" name="text1" value="{{rmov[0]}}" style="visibility:hidden;display:none;" >
+					<input type="text" name="text2" value="{{rmov[2]}}" style="visibility:hidden;display:none;" >
+					<input type="text" name="text3" value="{{rmov[4]}}" style="visibility:hidden;display:none;" >
+					<input type="text" name="text4" value="{{gname}}" style="visibility:hidden;display:none;" >
+					<button type="submit" style="border: none;transition-duration: 0.4s;border: 2px solid #f5b30c;"><img src="{{rmov[4]}}" id="img1"  alt="{{rmov[0]}}" ></button>
+				</form >
+      		</div>
+
+		</div>
+      </li>
+	{% endfor %}
+
+    </ul>
+
+	
+</section>
+<div class="movies-heading">
+	<h1>Movie-News</h1>
+	
+</div>
+<section id="movies-list">
+	<div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img1.jpeg">
+		</div>
+		<a href="#">This movie will be released soon</a>
+
+		
+	</div>
+	<div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img2.jpeg">
+		</div>
+		<a href="#">Actors are not okay with each other</a>
+
+		
+	</div>
+	<div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img3.jpeg">
+		</div>
+		<a href="#">Producers are ready!! As set is moving on</a>
+
+		
+	</div>
+	<div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img4.jpeg">
+		</div>
+		<a href="#">Nothing to worry.. Movie will be releasing on theatres Aug 22,2021</a>
+
+		
+	</div>
+	<div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/wp7053694.webp">
+		</div>
+		<a href="#">ZSJL 2021 was on fire even after leak</a>
+
+		
+	</div>
+	<div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img6.jpeg">
+		</div>
+		<a href="#">I love you 3000</a>
+
+		
+	</div><div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img7.jpeg">
+		</div>
+		<a href="#">Suraj movie direction said not okay</a>
+
+		
+	</div>
+	<div class="movies-box">
+		<div class="movies-img">
+			<img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/infinity.jpg">
+		</div>
+		<a href="#">TO be updated soon</a>
+	</div>
+</section>
+	<br>
+	<br>
+	<p style="text-align:center;font-size:22px;">CONTACT-US</p>
+ <div class="container"  id="contact" style=" border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;">
+  <form action="#">
+
+    <label for="fname">Name</label>
+    <input type="text" id="fname" name="yourname" placeholder="Your name.." style=" width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;">
+
+    <label for="lname">Email Address</label>
+    <input type="text" id="lname" name="lastname" placeholder="Enter your Email Address.." style="  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;">
+
+    <label for="country">Place</label>
+    <select id="country" name="country" style="  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;">
+      <option value="rkvalley">RKVALLEY</option>
+      <option value="ongole">ONGOLE</option>
+      <option value="nuzvid">NUZVID</option>
+		<option value="srikakulam">SRIKAKULAM</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px;  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;"></textarea>
+
+    <input type="submit" value="Submit" style="background-color: orange;
+  color: black;
+  padding: 12px 20px;
+  align-items:center;
+  text-align:center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;">
+
+  </form>
+</div>
+<footer>
+	<p>Developed By Batch-24</p>
+	<p>Copyright 2021 - RGUKT</p>
+</footer>
+</div>
+
+<script type="text/javascript">
+	      $(document).ready(function() {
+        $('#autoWidth').lightSlider({
+            autoWidth:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#autoWidth,#autoWidth2').removeClass('cS-hidden');
+            } 
+        });  
+      });
+</script>
+<script type="text/javascript">
+        $(document).ready(function() {
+        $('#autoWidth2').lightSlider({
+            autoWidth:true,
+            loop:false,
+            onSliderLoad: function() {
+                $('#autoWidth2').removeClass('cS-hidden');
+            } 
+        });  
+      });
+</script>
+
+<script type="text/javascript">
+	function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+	function myFunction1() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
+</script>
+   <script type="text/javascript">
+
+    </script>
+</body>
+</html>

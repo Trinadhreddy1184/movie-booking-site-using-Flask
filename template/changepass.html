@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOOKING-SITE</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/otp.css') }}">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="shortcut icon" href="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img1.jpeg"/>
+	<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<section>
+	{% for mess in get_flashed_messages() %}
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times</span>
+						</button>
+							{{mess}}
+						</div>
+	{% endfor %}
+<div class="container">
+	<div class="form">
+        <form enctype="multipart/form-data" method="post" action="/changepassword/">
+			<h5 id="elabel">Enter OTP sent to {{email1}}</h5>
+			<input type="text" placeholder="enter email otp here" inputmode="numeric" name="evotp" autocomplete="one-time-code" pattern="\d{5,6}" required>
+			<h5 id="elabel1">Create new password</h5>
+            <input type="password" id="pd1" name="usrpswd1"  placeholder=" Create Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <input type="password" id="pd2" name="usrpswd2"  placeholder=" Confirm Password" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+            <div class="buttons" aria-colspan="2">
+				<input type="submit" id="verify" value="Confirm">
+			</div>
+			<p id="show"></p>
+        </form>
+	</div>
+    </div>
+</section>
+<script type="text/javascript">
+	function preventBack() {
+            window.history.forward();
+        }
+
+        setTimeout("preventBack()", 0);
+
+        window.onunload = function () { null };
+</script>
+</body>
+</html>

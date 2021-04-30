@@ -1,0 +1,62 @@
+
+
+.screen {
+    padding: 6px;
+    margin-top: 30px;
+    margin-bottom: 28px;
+}
+
+.table>.fixed-column {
+    position: fixed;
+    display: block;
+    width: auto;
+    border-right: 1px solid #ddd;
+}
+
+.td th {
+    width: 31px;
+}
+
+.tdBox {
+    display: block;
+    width: 26px;
+    height: 23px;
+    padding: 1px 3px; 
+    border: 4px double white;
+    background-color:#ddd;
+    opacity: 0.4;
+}
+
+.spanBox {
+    display: inline-block; 
+    width: 28px;
+    height: 23px;
+    padding: 1px 3px; 
+    border: 4px double white;
+    background-color:#ddd;
+    margin-top: 2%;
+}
+
+.seatsBtn {
+width:100%;
+
+    margin-top: 1%;
+    float:center;
+    align-items:center;
+    text-align:center;
+}
+
+
+.greenColor{
+    background-color: #5cb85c;
+}
+
+.redColor{
+    background-color: #d9534f;
+}
+
+.resultTable td:nth-child(3){
+    max-width:100%;
+    word-break: break-all;
+}
+

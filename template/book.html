@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOOKING-SITE</title>
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style3.css') }}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/seat.css') }}"/>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.js" integrity="sha256-IGWuzKD7mwVnNY01LtXxq3L84Tm/RJtNCYBfXZw3Je0=" crossorigin="anonymous"></script>
+
+  <link rel="shortcut icon" href="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img1.jpeg"/>
+  </head>
+  <body style=" align-items:center;margin-top:-340px;">
+    <div id="id01">
+    <div class="imgcontainer" style="
+align-items:left;
+text-align:left;
+  margin: 10px 16px 12px 6px;
+  position: relative;">
+      <img id="img01" src="{{image}}"  alt="Avatar" class="avatar" style="margin:422px 0 0 12px;
+  width: 380px;
+  height: 420px;
+  border-radius: 5%;">
+    </div>
+
+    <div class="container">
+      <h2 id="tit01" style="margin-top:-390px; margin-left:230px;">{{title}}</h2>
+      <h3 id="des01" style="margin-left:10px;">{{desc}}</h3>
+      <br><br>
+    </div>
+  </div>
+    <form action="/confirmed/" method="post" enctype="multipart/form-data">
+                     <div class="movie-container">
+                         <h1 style="text-align:center;">RESERVE YOUR SEATS HERE!!!</h1><br><br><br>
+
+                    <label>Select a Theater</label>
+      <select id="theatre" name="s1" onchange="myFunction1()" required>
+          <option></option>
+        <option value="80">MARUTHI THEATRE</option>
+        <option value="100">SUJATHA THEATRE</option>
+        <option value="150">VBN DOLBY </option>
+        <option value="140">KRISHNA DTS</option>
+      </select>
+      <label>Date</label>
+      <input type="date" id="date1" name="d1" required/>
+      <label>Show Timings</label>
+      <select id="time" name="s2" onchange="myFunction2()" required>
+          <option></option>
+        <option value="">10AM(MORNING-SHOW)</option>
+        <option value="">2PM(MATNEE)</option>
+        <option value="">6PM(EVENING-SHOW) </option>
+        <option value="">10PM(LAST-SHOW)</option>
+      </select>
+                     </div>
+
+  <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-lg-12 col-sm-12 col-md-12 text-center" style="margin-top:-150px;">
+
+                    <br><br><br><br><br><br><br><br> <br><br>
+                    <label  style="margin-left:9px">ENTER NO.OF SEATS</label>
+
+                              <input name="n1" type="number" min='0' max='50' class="form-control input" id="Seats" style="margin-left:24px" placeholder="Enter number of seats">
+                            <input name="n2" type="text" class="form-control input" id="Name" placeholder="{{nam}}" value="{{nam}}" >
+<br>
+                    <br>
+                    <div class='row' style="float:center;">
+                        <button type="button" id="Selectseat" class="btn btn-success seatsBtn" style="float:center;align-items:center;text-align:center;">Select Seats</button>
+                    </div>
+
+                    <div class="row" style="align-items:center;">
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"></div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 bg-primary screen">SCREEN</div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"></div>
+                    </div>
+                    <div class="row" style="align-items:center;">
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"></div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <table id="seatTable" class="table fixed-column td" >
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>1</th>
+                                        <th>2</th>
+                                        <th>3</th>
+                                        <th>4</th>
+                                        <th>5</th>
+                                        <th>6</th>
+                                        <th>7</th>
+                                        <th>8</th>
+                                        <th>9</th>
+                                        <th>10</th>
+                                        <th></th>
+                                        <th>11</th>
+                                        <th>12</th>
+                                        <th>13</th>
+                                        <th>14</th>
+                                        <th>15</th>
+                                        <th>16</th>
+                                        <th>17</th>
+                                        <th>18</th>
+                                        <th>19</th>
+                                        <th>20</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>D</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E</td>
+                                    </tr>
+                                    <tr>
+                                        <td>F</td>
+                                    </tr>
+                                    <tr>
+                                        <td>G</td>
+                                    </tr>
+                                    <tr>
+                                        <td>H</td>
+                                    </tr>
+                                    <tr>
+                                        <td>I</td>
+                                    </tr>
+                                    <tr>
+                                        <td>J</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" id="ConfirmSeat" class="btn btn-warning seatsBtn">Confirm Seats</button>
+                            <div>
+                                <span class="spanBox" style='Background-color:green'></span><label>Selected Seats</label>
+                                <span class="spanBox" style='Background-color:red'></span><label>Reserved Seats</label>
+                                <span class="spanBox"></span><label>Empty Seats</label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-xs-12 col-sm-2 col-md-2 col-lg-2'></div>
+                <div class='col-xs-12 col-sm-6 col-md-6 col-lg-6'>
+                    <table class='table-striped table table-bordered resultTable'>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>No. of Seats</th>
+                                <th>Seats Reserved</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'></div>
+            </div>
+        </div>
+        <input type="text" style="visibility:hidden;" name="s3" id="numb">
+        <input type="text" style="visibility:hidden;" name="s4" id="numb1" value="{{mail1}}">
+        <input type="text" style="visibility:hidden;" name="s6" id="numb4" value="{{nam}}">
+        <input type="text" style="visibility:hidden;" name="s10" id="numb8" >
+        <input type="text" style="visibility:hidden;" name="s11" id="numb9" >
+        <input type="text" style="visibility:hidden;" name="s7" id="numb5" >
+         <input type="text" style="visibility:hidden;" name="s5" id="numb2" value="{{title}}">
+    <div class='row' style="float:center;">
+     <button  class="btn btn-success seatsBtn" style="align:center;align-items:center;" type="submit">BOOK NOW</button>
+    </div>
+
+    </form>
+  <script type="text/javascript">
+
+var noOfSeats = 0, clickCounter = 0, k = 0, UserCount = 0;
+$(document).ready(function () {
+    $('.table').attr('disabled', true);
+    var TableRows = $('.table tr');
+    var emptyCell = '<td></td>';
+    for (var i = 1; i < TableRows.length; i++) {
+        var rowID = 1;
+        var colId = $('.table tbody tr:nth-child(' + i + ') td:nth-child(' + 1 + ')').text();
+        for (var j = 0; j < 21; j++) {
+            var id = rowID + colId;
+            var appendString = '<td><span class="tdBox" id=' + id + '></span></td>';
+            if (j == 10) {
+                $('.table tbody tr:nth-child(' + i + ')').append(emptyCell);
+                rowID--;
+            }
+            else {
+                $('.table tbody tr:nth-child(' + i + ')').append(appendString);
+            }
+            rowID++;
+        }
+    }
+
+    $('#Seats').focusout(function () {
+        var BookedSeats = $('#Seats').val();
+        noOfSeats = BookedSeats;
+        if (BookedSeats > 50)
+        {
+            alert('Please select max of 50 seats only');
+            $('#Seats').val('');
+            $('.table tbody tr td span').css({opacity: 0.4});
+        }
+    });
+    var redCount = 0;
+    $('#Selectseat').unbind('click').bind('click', function () {
+        if ($('#Seats').val() != '' || $('#Seats').val() != 0) {
+            var table = document.getElementById("seatTable");
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                for (var j = 1, col; col = row.cells[j]; j++) {
+                    if (col.firstChild != null)
+                    {
+                        var ClassName = col.firstChild.className;
+                        if (ClassName != '' && typeof ClassName !== "undefined" && ClassName !== null) {
+                            if (ClassName[1] == 'redColor') {
+                                redCount++;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if (redCount == 200)
+            {
+                $('.table tbody tr td').unbind('click');
+                $('.table tbody tr td span').css({opacity: 0.4});
+                alert('Sorry HouseFull');
+                return;
+            }
+            $('.table').attr('disabled', false);
+            $('.table tbody tr td span').css({opacity: 1});
+            $('.table tbody tr td').unbind('click').bind('click', function () {
+                var ClassName = $(this).find('span').attr('class');
+                ClassName = ClassName.split(" ");
+                if (ClassName[1] == 'greenColor') {
+                    $(this).find('span').removeClass('greenColor');
+                    clickCounter--;
+                }
+                else
+                {
+                    if (clickCounter >= noOfSeats)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        if (ClassName[1] == 'redColor')
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            $(this).find('span').addClass('greenColor');
+                            clickCounter++;
+                        }
+                    }
+                }
+            });
+        }
+        else
+        {
+            alert('Please select no of seats');
+        }
+    });
+    var idList = '';
+    $('#ConfirmSeat').unbind('click').bind('click', function () {
+        var table = document.getElementById("seatTable");
+        var UserName = $('#Name').val()
+        if ($('#Seats').val() == '' || $('#Seats').val() == 0)
+        {
+            alert('Please enter number of seats to confirm');
+            return;
+        }
+        else
+        {
+            document.getElementById("numb5").value=$('#Seats').val();
+            for (var i = 1, row; row = table.rows[i]; i++) {
+                for (var j = 1, col; col = row.cells[j]; j++) {
+                    if (col.firstChild != null)
+                    {
+                        var ClassName = col.firstChild.className;
+                        if (ClassName != '' && typeof ClassName !== "undefined" && ClassName !== null) {
+                            ClassName = ClassName.split(" ");
+                            if (ClassName[1] == 'greenColor') {
+                                UserCount++;
+                                idList += $('.table tbody tr:nth-child(' + i + ') td:nth-child(' + (j + 1) + ') span').attr('id') + ',';
+                                $('.table tbody tr:nth-child(' + i + ') td:nth-child(' + (j + 1) + ') span').removeClass('greenColor').addClass('redColor');
+                            }
+                            if (ClassName[1] == 'greenColor') {
+                                redCount++;
+                            }
+                        }
+                    }
+                }
+            }
+            if (UserCount != parseInt(noOfSeats))
+            {
+                UserCount = 0;
+                var array = idList.split(',');
+                for (var l = 0; l < array.length; l++) {
+                    $('#' + array[l]).removeClass('redColor').addClass('greenColor');
+                }
+                alert('selected seats does not match with the number of seats specified');
+                return;
+            }
+            idList = idList.substring(0, idList.length - 1);
+
+            var newRow = document.createElement('tr');
+            newRow.setAttribute('id', 'id_' + k);
+            $('.resultTable').append(newRow);
+            var td = document.createElement('td');
+            td.innerHTML = UserName;
+            document.getElementById('id_' + k).appendChild(td);
+            td = document.createElement('td');
+            td.innerHTML = UserCount;
+            document.getElementById('id_' + k).appendChild(td);
+            td = document.createElement('td');
+            td.innerHTML = idList;
+            document.getElementById('numb').value=idList;
+            document.getElementById('id_' + k).appendChild(td);
+            k++;
+            clickCounter = 0;
+            UserCount = 0;
+            $('#Name').val('');
+            $('#Seats').val('');
+            $('.table tbody tr td').unbind('click');
+            $('.table tbody tr td span').css({opacity: 0.4});
+
+        }
+    });
+
+});
+ function myFunction1(){
+           var mylist = document.getElementById("theatre");
+  document.getElementById("numb8").value = mylist.options[mylist.selectedIndex].text;
+            }
+ function myFunction2(){
+    var mylist = document.getElementById("time");
+  document.getElementById("numb9").value = mylist.options[mylist.selectedIndex].text;
+            }
+
+
+  </script>
+  </body>
+</html>

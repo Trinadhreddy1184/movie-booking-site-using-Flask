@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOOKING-SITE</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<link rel="shortcut icon" href="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img1.jpeg"/>
+	<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+					{% for mess in get_flashed_messages() %}
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+							{{mess}}
+						</div>
+					{% endfor %}
+<section>
+	<div class="container">
+		<div class="user signinbox">
+			<div class="imgbox"><img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/img1.jpeg"></div>
+			<div class="formbox">
+				<form action="/home/" enctype="multipart/form-data" method="post">
+					<h2>Sign In</h2>
+					<input type="email" name="usrmail" placeholder="email" required>
+					<input type="password" name="usrpswd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+					<input type="submit"  value="Login">
+					<p class="signup"><a href="/forgotpass" >Forgot Password</a></p>
+					<p class="signup">Don't have an account ?<a href="#" onclick="toggleForm();">Sign Up</a></p>
+				</form>
+		</div>
+	</div>
+		<div class="user signupbox">
+			<div class="formbox">
+				<form method="post" enctype="multipart/form-data" action="/signup/">
+
+					<h2>Create an account</h2>
+					<input type="text" name="usrname" placeholder="Name" required>
+					<input type="email" name="usrmail" placeholder="Email" required>
+					<input type="tel" name="usrphone" placeholder="Mobile Number" required>
+					<input type="password" id="pd1" name="usrpswd1"  placeholder=" Create Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+					<input type="password" id="pd2" name="usrpswd2"  placeholder=" Confirm Password" required  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+					<input type="submit" name="" value="Sign Up">
+					<p class="signup">Already have an account ?<a href="#" onclick="toggleForm();">Sign In</a></p>
+				</form>
+		</div>
+		<div class="imgbox"><img src="https://movie-test1.s3.ap-south-1.amazonaws.com/images/img/wp7053707.jpg"></div>
+	</div>
+</div>
+</section>
+<script type="text/javascript">
+	function toggleForm() {
+		var container = document.querySelector('.container');
+		container.classList.toggle('active')
+	}
+	window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+body
+{
+margin: 0px;
+padding: 0px;
+font-family: poppins;
+background-color: rgba(15,151,151,0.03);
+}
+
+*
+{
+	box-sizing: border-box;
+}
+ul
+{
+	list-style: none;
+}
+a
+{
+	text-decoration: none;
+}
+nav
+{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	border: 1px solid rgba(0,0,0,0.04);
+	background-color: #ffffff;
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 100;
+
+}
+.logo img
+{
+	height: 55px;
+	width: 55px;
+	border-radius: 100%;
+}
+nav .menu
+{
+	display: flex;
+}
+nav .menu li a
+{
+height: 40px;
+line-height: 43px;
+margin: 0px;
+padding: 0px 22px;
+display: flex;
+font-size: 0.8rem;
+text-transform: uppercase;
+font-weight: 500;
+color: #585858;
+letter-spacing: 1px;
+
+}
+
+nav .menu li .dropbtn
+{
+	border: none;
+	text-decoration: none;
+	width: 160px;
+	font-family: poppins;
+	font-weight: 500;
+	letter-spacing: 2px;
+	line-height: 43px;
+
+}
+
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+ }
+
+/* The search field */
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 8px 6px;
+  background-repeat: no-repeat;
+  width: 160px;
+  font-size: 16px;
+  padding: 7px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid white;
+}
+/*-----------------------------------------------------*/
+/* The search field when it gets focus/clicked on */
+#myInput:focus {outline: 3px solid #ddd;}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  width:160px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+nav .menu li a #login
+{
+		line-height: 45px;
+
+}
+/*---------------------------------------------------------*/
+.search
+{
+	width: 250px;
+	height: 40px;
+	background-color: rgba(245,245,245,0.8);
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	border-radius: 20px;
+	padding: 0px 20px;
+
+}
+
+.search input
+{
+	width: 100%;
+	height: 30px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+}
+.search i
+{
+	color: #3a3a3a;
+}
+nav .menu li a:hover
+{
+	background-color: #242424;
+	color: #ffffff;
+	box-shadow: 5px 10px 20px rgba(53,53,53,0.1);
+	transition: all ease 0.3s;
+}
+#main
+{
+	padding-top: 80px;
+	background-color: #ffffff;
+}
+.showcase-box{
+	width: 430px;
+	height: 250px;
+	box-shadow: 5px 15px 30px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	margin:0px 20px 10px 20px;
+	overflow: hidden;
+}
+.showcase-box img{
+
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top;
+	cursor: pointer;
+}
+.showcase-heading
+{
+	padding-left: 30px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	color: #1a1a1a;
+}
+.cs-hidden
+{
+	overflow: visible !important;
+}
+#latest
+{
+	border-top: 1px solid rgba(53,53,53,0.2);
+}
+.latest-heading
+{
+	margin: 30px 30px 0px 30px;
+	font-weight: 500;
+	font-size: 1.3rem;
+}
+.latest-box
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow:2px 2px 30px rgba(0,0,0,0.2);
+	margin: 20px 10px;
+	border-radius: 10px;
+	overflow: hidden;
+	width: 200px;
+
+	background-color: #ffffff;
+
+}
+.latest-img img
+{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	cursor: pointer;
+
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 66, 34, 0);
+  transition: background 0.5s ease;
+}
+.latest-img:hover .overlay{
+
+display: block;
+  background: rgba(0, 0, 0, .3);
+}
+
+.button {
+  position: absolute;
+  width: 500px;
+  left:0;
+  top: 180px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.button a {
+  width: 200px;
+  padding: 12px 48px;
+  text-align: center;
+  color: white;
+  border: solid 2px white;
+  z-index: 1;
+}
+
+.latest-img:hover .button {
+  opacity: 1;
+}
+
+.latest-text strong
+{
+	color:#3a3a3a;
+	margin: 0px;
+
+}
+.latest-text
+{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 10px;
+
+}
+
+.latest-text button{
+
+	border-radius: 25px;
+	font-family: poppins;
+	font-size: 18px;
+color: red;
+background-color: lightblue;
+	font-weight: bold;
+	cursor: pointer;
+
+}
+.movies-heading h2{
+	font-weight: 400;
+	margin: 0px;
+	padding-left: 5px 20px;
+	background-color: rgba(0,0,0,0.01);
+	border: 1px solid rgba(0,0,0,0.06);
+	font-size: 1.7rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	width: 100%;
+}
+.movies-heading{
+	display: flex;
+	margin: 0px 2%;
+
+}
+.movies-box{
+	width: 250px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+	margin: 20px;
+	border-radius: 5px;
+	overflow: hidden;
+	border-top: 3px solid #292929;
+
+
+}
+.movies-img{
+	width: 100%;
+	height: 300px;
+	position: relative;
+
+}
+.movies-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	cursor: pointer;
+
+}
+.movies-box a{
+	text-align: center;
+	display: block;
+	font-weight: 400;
+	display: -webkit-box;
+	max-width: 80%;
+	-webkit-line-clamp:vertical;
+	overflow: ellipsis;
+	color: #3a3a3a;
+	margin: 10px;
+}
+.movies-box:hover{
+	transform: translateY(-10px);
+	transition: all ease 0.2s;
+}
+#movies-list{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+footer{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border-top: 1px solid rgba(0,0,0,0.01);
+}
+footer p{
+	color: #5e5e5e;
+	margin: 10px 0px;
+	font-size: 0.9rem;
+
+}
+	nav .menu-btn{
+		display: none;
+@media(max-width:1100px){
+	nav{
+		justify-content: space-between;
+		height: 70px;
+		padding:0px 10px;
+
+
+	}
+	nav .menu{
+		display: none;
+		position: absolute;
+		top: 65px;
+		left: 0px;
+		background:#fff;
+		border-bottom: 4px solid #242424;
+		width: 100%;
+		padding: 0px;
+		margin: 0px;
+
+
+	}
+	.menu li {
+		width: 100%;
+	}
+	nav .menu li a {
+		width: 100%;
+		height: 40px;
+		align-items: center;
+		margin: 0px;
+		padding: 25px;
+		border:1px solid rgba(38,38,38,0.03);
+
+
+	}
+	nav .menu-icon{
+		cursor: pointer;
+		float: right;
+		padding: 28px 20px;
+		position: relative;
+		user-select: none;
+		display: block;
+	}
+	nav .menu-icon .nav-icon{
+		background-color:#333333;
+		display: block;
+		height: 2px;
+		position: relative;
+		transition: background 0.2s ease-out;
+		width: 18px;
+	}
+	nav .menu-icon .nav-icon:before,
+	nav .menu-icon .nav-icon:after {
+		background:#333333;
+		content: '';
+		display: block;
+		height: 100%;
+		position: absolute;
+		transition: all ease-out 0.2s;
+		width: 100%;
+	}
+	nav .menu-icon .nav-icon:before{
+		top: 5px;
+
+	}
+	nav .menu-icon .nav-icon:after{
+		top: -5px;
+
+
+	}
+	nav .menu-btn:checked ~ .menu-icon .nav-icon{
+		background:transparent;
+	}
+	nav .menu-btn:checked ~ .menu-icon .nav-icon:before{
+		transform: rotate(-45deg);
+		top: 0;
+
+
+	}
+	nav .menu-btn:checked ~ .menu-icon .nav-icon:after{
+		transform: rotate(45deg);
+		top: 0;
+
+
+	}
+
+	}
+	nav .menu-btn:checked ~ .menu{
+		display: block;
+	}
+
+}
+@media(max-width: 680px){
+	.showcase-box{
+		max-width: 300px;
+		height: 180px;
+		margin: 10px;
+	}
+	.latest-box
+	{
+		width: 190px;
+		margin: 20px 5px;
+
+
+	}
+	.movies-box{
+		flex-direction:row;
+		width: 90%;
+		border:1px solid rgba(0,0,0,0.3);
+
+	}
+	.movies-box a{
+		width: 65%;
+	}
+footer
+{
+	justify-content: space-between;
+	padding: 0px 20px;
+	text-align: center;
+
+}
+}
+@media(max-width: 440px){
+	.movies-box a, .movies-box{
+		width: 100%;
+	}
+	.movies-box{
+		flex-direction: column;
+	}
+	.logo img{
+		height: 30px;
+	}
+	.search{
+		width: 90%;
+		height: 40px;
+	}
+}
+
+
+/*8888888888888888*/
+
