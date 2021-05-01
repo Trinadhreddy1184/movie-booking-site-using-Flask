@@ -3,27 +3,22 @@ from random import *
 import requests
 import json
 from flask_mail import *
-#from twilio.rest import Client
 application=Flask(__name__,template_folder='template')
 application.secret_key="movie-project"
 from flask_bcrypt import Bcrypt
 import mysql.connector
 url = "https://www.fast2sms.com/dev/bulk"
-
 #Flask mail configuration
 application.config['MAIL_SERVER']='smtp.gmail.com'
 application.config['MAIL_PORT']=465
-application.config['MAIL_USERNAME'] = 'trinadhreddy1184@gmail.com'
-application.config['MAIL_PASSWORD'] = 'Trini1184'
+application.config['MAIL_USERNAME'] = '#sendermail'
+application.config['MAIL_PASSWORD'] = '#senderemailpassword'
 application.config['MAIL_USE_TLS'] = False
 application.config['MAIL_USE_SSL'] = True
-
 mail = Mail(application)
-#auth_token="077f8b8449990c556a32e352403bb20c"
 name="";email="";phone="";hashedpassword=""
-#client = Client(account_sid, auth_token)
-conn=mysql.connector.connect(host='movdatabase-1.cdwhsd8rcawo.ap-south-1.rds.amazonaws.com',port='3306',
-                   user='admin',password='rgukt123',db='users')
+conn=mysql.connector.connect(host='#yourdatabaseinstance.ap-south-1.rds.amazonaws.com',port='3306',
+                   user='#admin',password='#masterpassword',db='users')
 conn.autocommit=True
 bcrypt=Bcrypt()
 @application.route("/home/",methods=['POST'])
@@ -50,7 +45,7 @@ def sendmessage():
     global phoneotp,emailotp
     phoneotp = randint(000000,999999)
     emailotp = randint(000000,999999)
-    msg = Message('OTP VERIFY', sender='trinadhreddy1184@gmail.com', recipients=[email])
+    msg = Message('OTP VERIFY', sender='#sendermail', recipients=[email])
     msg.body = (f"The otp is {emailotp}")
     mail.send(msg)
     my_data = {
@@ -106,7 +101,7 @@ def changepass():
     data = cursor.fetchall()
     for uemail in data:
         if femail == uemail[0]:
-            msg1 = Message('OTP VERIFY', sender='trinadhreddy1184@gmail.com', recipients=[femail])
+            msg1 = Message('OTP VERIFY', sender='#sendermail', recipients=[femail])
             msg1.body = (f"The otp is {emailotp1} to change password ")
             mail.send(msg1)
             return render_template('changepass.html',email1=femail)
@@ -198,7 +193,7 @@ def confirm():
     cursor=conn.cursor(buffered=True)
     cursor.execute("INSERT INTO booking(Name,Email,Moviename,Theatre,Date,Timing,Number,Seats) Values(%s,%s,%s,%s,%s,%s,%s,%s) " ,(Name,Email,Moviename,Theatre,Date,Timing,Number,Seats))
     conn.commit()
-    msg3 = Message('Ticket Details', sender='trinadhreddy1184@gmail.com', recipients=[Email])
+    msg3 = Message('Ticket Details', sender='#sendermail', recipients=[Email])
     msg3.body = (f"""Hii {Name} , 
                        Moviename:{Moviename} 
                        Theatre:{Theatre}
