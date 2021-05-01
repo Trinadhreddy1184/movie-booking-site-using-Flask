@@ -63,7 +63,7 @@ def sendmessage():
         'numbers': f'{phone}'
     }
     headers = {
-        'authorization': 'EQ6HCKuLoav2SyTn9PriV5thMg70bWjFXzBRUOA8GI1lx3ZkDfMuKpB5dsQjSOfTUcGy1tLNRPX64ekE',
+        'authorization': '#yourauthorizationkey',
         'Content-Type': "application/x-www-form-urlencoded",
         'Cache-Control': "no-cache"
     }
