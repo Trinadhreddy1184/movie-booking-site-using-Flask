@@ -70,9 +70,9 @@
 
 #### After changes use ide such as 'Pycharm' for better visualization and interface.
 #### Important thing:-
-   1. Create database naming 'users' and create tables in those database.Use 'Sqlelectron' for this. This tool provide you interface to create tables and insert data into it().
+   1. Create database naming 'users' and create tables in those database.Use 'Sqlelectron' for this. This tool provide you interface to create tables and insert data into it(Create tables as specified schema above).
    2. This project has some functionality limitations and some pages are still in progress, and we are trying hard to fix those things.
    3. To deploy project in Elastic Beanstalk follow the [link.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html)
    4. Also see some other [references](https://camillovisini.com/article/barebone-flask-website-on-aws-elastic-beanstalk/) if you can't understand above point.
 
-## -------------------------------------------Thank You--------------------------------------------------
+## -------------------------------Thank You------------------------------------
