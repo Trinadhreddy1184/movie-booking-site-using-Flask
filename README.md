@@ -75,4 +75,4 @@
    3. To deploy project in Elastic Beanstalk follow the [link.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html)
    4. Also see some other [references](https://camillovisini.com/article/barebone-flask-website-on-aws-elastic-beanstalk/) if you can't understand above point.
 
-## -------------------------------------------------Thank You------------------------------------------------------
+## -------------------------------------------Thank You--------------------------------------------------
