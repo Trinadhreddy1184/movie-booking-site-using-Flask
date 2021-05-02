@@ -4,18 +4,20 @@
 #### The instructions to be followed are:-
     
    1. Inorder to run this you need to import all the libraries specified in 'requirements.txt' file.
-      $ pip install -r requirements.txt
-      Above command installs all the required libraries to run the project.
-    2. Use 'wsgi.py' to run the project instead of 'application.py'.
-    3. Network connection is needed in order to run the project.
-    4. Html files are in /template folder and CSS & Js files,Images are in /static folder.
-    5. We use flask-mail to send mail for otps and booking details , some code  must be changed inorder to send mail 
+      
+     $ pip install -r requirements.txt
+      
+     Above command installs all the required libraries to run the project.
+   2. Use 'wsgi.py' to run the project instead of 'application.py'.
+   3. Network connection is needed in order to run the project.  
+   4. Html files are in /template folder and CSS & Js files,Images are in /static folder.
+   5. We use flask-mail to send mail for otps and booking details , some code  must be changed inorder to send mail 
         * In 'application.py' change the value of '#sendermail' to sender email address.(line 14,48,104,196)
         * Change the value of '#sendermailpassword' to sender email password.(line 15)
         * The sender must enable 'less secure app access' in their gmail settings inorder to send mail.[Click here to enable](https://myaccount.google.com/lesssecureapps)
-    6. We used AWS RDS service for database to our website. So it is preferable if you use your own database in your test as I am not providing any of my                 details.So inorder to establish database connection there are some changes to be made and some instructions to be followed.
+   6. We used AWS RDS service for database to our website. So it is preferable if you use your own database in your test as I am not providing any of my                 details.So inorder to establish database connection there are some changes to be made and some instructions to be followed.
         * First thing to do is if you don't know about AWS RDS [Click here to the official documentation](http://aws.amazon.com/documentation/rds)
-        *Create a Mysql database instance if not exist.[Click here to create db instance](https://ap-south-1.console.aws.amazon.com/rds/home)
+        * Create a Mysql database instance if not exist.[Click here to create db instance](https://ap-south-1.console.aws.amazon.com/rds/home)
         * In 'application.py' file line 20 change the value of 'host=' to your database instance endpoint by replacing '#yourdatabaseinstance' with your endpoint.
         * And also change the values of 'user=' and 'password=' by admin credentials you used while creating database instance.
         * Use database editors such as 'sqlelectron' to edit your database  to create and edit your database tables etc.
