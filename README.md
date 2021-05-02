@@ -20,42 +20,47 @@
         * And also change the values of 'user=' and 'password=' by admin credentials you used while creating database instance.
         * Use database editors such as 'sqlelectron' to edit your database  to create and edit your database tables etc.
         * The schemas and data for tables in database are shown as     
-            Userdata:
-                Field | Type | Null | Key | Default | Extra
-                -------------------------------------------
-                Name  |char(20)|  YES  |  NULL |    |
-                Email |varchar(30)|  NO|  PRI  |NULL |  |
-                Phone | bigint | YES   | NULL  |     |
-                Password |  varchar(100)|  YES  |  NULL |  |        
+            Userdata:    
+
+               | Field    | Type         | Null | Key  | Default | Extra |
+               | :------: | :----------: | :--: | :--: | :-----: | :---: |
+               | Name     | char(20)     | YES  |      | NULL    |       |
+               | Email    | varchar(30)  | NO   | PRI  | NULL    |       |
+               | Phone    | bigint       | YES  |      | NULL    |       |
+               | Password | varchar(100) | YES  |      | NULL    |       |       
+
             movies:
-              Field  Type  Null  Key  Default  Extra
-              ----------------------------------------
-              Moviename  varchar(30)  YES    NULL  
-              Language  char(20)  YES    NULL  
-              Description  varchar(5000)  YES    NULL  
-              Imdb  float  YES    NULL  
-              image  varchar(200)  YES    NULL  
+            
+               |Field | Type | Null | Key | Default | Extra|
+               ----------------------------------------
+               Moviename  varchar(30)  YES    NULL  
+               Language  char(20)  YES    NULL  
+               Description  varchar(5000)  YES    NULL  
+               Imdb  float  YES    NULL  
+               image  varchar(200)  YES    NULL  
 
             recommended_movies:
-              Field  Type  Null  Key  Default  Extra
-              ----------------------------------------
-              Moviename  varchar(30)  YES    NULL  
-              Language  char(20)  YES    NULL  
-              Description  varchar(5000)  YES    NULL  
-              Imdb  float  YES    NULL  
-              image  varchar(200)  YES    NULL  
+   
+               Field  Type  Null  Key  Default  Extra
+               ----------------------------------------
+               Moviename  varchar(30)  YES    NULL  
+               Language  char(20)  YES    NULL  
+               Description  varchar(5000)  YES    NULL  
+               Imdb  float  YES    NULL  
+               image  varchar(200)  YES    NULL  
 
             booking:
-              Field  Type  Null  Key  Default  Extra
-              ---------------------------------------      
-              Name  varchar(30)  YES    NULL  
-              Email  varchar(30)  YES    NULL  
-              Moviename  varchar(30)  YES    NULL  
-              Theatre  varchar(30)  YES    NULL  
-              Date  varchar(30)  YES    NULL  
-              Timing  varchar(30)  YES    NULL  
-              Number  int  YES    NULL  
-              Seats  varchar(100)  YES    NULL  
+              
+               Field  Type  Null  Key  Default  Extra
+               ---------------------------------------      
+               Name  varchar(30)  YES    NULL  
+               Email  varchar(30)  YES    NULL  
+               Moviename  varchar(30)  YES    NULL  
+               Theatre  varchar(30)  YES    NULL  
+               Date  varchar(30)  YES    NULL  
+               Timing  varchar(30)  YES    NULL  
+               Number  int  YES    NULL  
+               Seats  varchar(100)  YES    NULL  
 
    7. We used Fast2sms API for sending otp to phone.There are few changes to be made.
       * Create a Fast2sms account and use your authentication key to send otp from your account.For more information and to use this API [Click here.](https://docs.fast2sms.com/?python#post-method10)
